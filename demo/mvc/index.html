@@ -1,0 +1,16 @@
+$def with(datos)
+<html>
+    <head>
+    </head>
+    <body>
+        <form method="POST">
+            <label>Nombre del libro</label>
+            <input type="text" name="book_name">
+            <button type="submit">Buscar</button>
+        </form>
+    </body>
+
+    $if datos != None:
+        <h5>$datos["book_name"]</h5>
+        <a target="blank" href="$datos['url']">Enlace</a>
+</html>
