@@ -1,4 +1,4 @@
-$def with(datos)
+$def with(books)
 <html>
     <head>
     </head>
@@ -10,7 +10,14 @@ $def with(datos)
         </form>
     </body>
 
-    $if datos != None:
-        <h5>$datos["book_name"]</h5>
-        <a target="blank" href="$datos['url']">Enlace</a>
+    $if books != None:
+        <table>
+            <tr>
+                <th>Enlace</th>
+            </tr>
+        $for book in books:
+            <tr>
+                <td><a target="blank" href="$book['url']">Enlace</a></td>
+            </tr>
+        </table>
 </html>

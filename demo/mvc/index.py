@@ -7,8 +7,8 @@ render = web.template.render("mvc/")
 class Index():
 
     def GET(self):
-        datos = None
-        return render.index(datos)
+        books = None
+        return render.index(books)
 
     def POST(self):
         form = web.input()
@@ -19,12 +19,18 @@ class Index():
         encoded = json.dumps(items)
         decoded = json.loads(encoded)
 
-        url = decoded[5]["volumeInfo"]["infoLink"]
+        books = []
 
-        datos = {
-            "book_name":book_name,
-            "url":url
-        }
+        for book in decoded:
+            url = book["volumeInfo"]["infoLink"]
 
-        return render.index(datos)
+            datos = {
+                "book_name":book_name,
+                "url":url
+            }
+            books.append(datos)
+        
+        print(books)
+
+        return render.index(books)
         
