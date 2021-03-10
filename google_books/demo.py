@@ -7,6 +7,8 @@ result =requests.get('https://www.googleapis.com/books/v1/volumes?q=sinsajo')
 # print(result.headers["Content-Type"])
 books = result.json()
 
+print(books)
+
 # print(books.keys())
 # print(books["totalItems"])
 
